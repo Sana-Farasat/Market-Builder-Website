@@ -110,7 +110,7 @@ const Products = async () => {
                 <br />
                 <div className="flex items-center justify-between">
                   <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                    $599
+                    ${product.price}
                   </span>
                   {/* <Link href={`/product/${encodeURIComponent(product.slug)}`}> */}
                   <Link

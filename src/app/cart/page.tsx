@@ -18,7 +18,7 @@ const CartPage = () => {
     setCartItems(getCartItems());
   }, []);
 
-  const handleRemove = (id: string) => {
+  const handleRemove = (_id: string) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to undo this action!",
@@ -29,7 +29,7 @@ const CartPage = () => {
       confirmButtonText: "Yes, remove it!",
     }).then((result:any) => {
       if (result.isConfirmed) {
-        removeFromCart(id);
+        removeFromCart(_id);
         setCartItems(getCartItems());
         Swal.fire(
           "Removed!",
@@ -40,28 +40,28 @@ const CartPage = () => {
     });
   };
 
-  const handleQuantityChange = (id: string, quantity: number) => {
-    updateCartQuantity(id, quantity);
+  const handleQuantityChange = (_id: string, quantity: number) => {
+    updateCartQuantity(_id, quantity);
     setCartItems(getCartItems());
   };
 
-  const handleIncrement = (id: string) => {
-    const product = cartItems.find((item:any) => item._id === id);
+  const handleIncrement = (_id: string) => {
+    const product = cartItems.find((item:any) => item._id === _id);
     if (product) {
-      handleQuantityChange(id, product.stockLevel + 1);
+      handleQuantityChange(_id, product.stockLevel + 1);
     }
   };
 
-  const handleDecrement = (id: string) => {
-    const product = cartItems.find((item:any) => item._id === id);
+  const handleDecrement = (_id: string) => {
+    const product = cartItems.find((item:any) => item._id === _id);
     if (product && product.stockLevel > 1) {
-      handleQuantityChange(id, product.stockLevel - 1);
+      handleQuantityChange(_id, product.stockLevel - 1);
     }
   };
 
   const calculateTotal = () => {
     return cartItems.reduce(
-      (total:any, item:any) => total + item.price * item.stockLevel,
+      (total:any, item:any) => total + item.price * item.stockLevel, 
       0
     );
   };
@@ -95,14 +95,15 @@ const CartPage = () => {
       <div className="space-y-6">
         {cartItems.length > 0 ? (
           cartItems.map((item:any , index :any) => (
+          
             <div
             key={item._id || index } 
               className="flex items-center justify-between bg-white p-4 rounded-lg shadow-md"
             >
               <div className="flex items-center" >
-                {item.image && (
+                {item.imageUrl && (
                   <Image
-                    src={urlFor(item.image).url()}
+                    src={urlFor(item.imageUrl).url()}
                     className="w-16 h-16 object-cover rounded-lg"
                     alt="image"
                     width={500}
@@ -110,7 +111,7 @@ const CartPage = () => {
                   />
                 )}
                 <div className="ml-4">
-                  <h2 className="text-lg font-semibold">{item.productName}</h2>
+                  <h2 className="text-lg font-semibold">{item.name}</h2>
                   <p className="text-gray-500">Price: ${item.price}</p>
                   <div className="flex items-center mt-2">
                     <button
@@ -138,12 +139,12 @@ const CartPage = () => {
                 </button>
               </div>
             </div>
-          ))
+           ) )
         ) : (
           <p className="text-gray-600 text-center">Your cart is empty.</p>
         )}
       </div>
-
+      
       {cartItems.length > 0 && (
         <div className="mt-8 bg-white p-4 rounded-lg shadow-md">
           <div className="flex justify-between items-center">
