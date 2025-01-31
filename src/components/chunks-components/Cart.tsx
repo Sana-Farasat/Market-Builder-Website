@@ -4,7 +4,6 @@ import { AiOutlineLeft, AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import product from "./product";
 
 const Cart = () => {
   const {

@@ -1,14 +1,13 @@
 "use client";
 
 import { CartContext } from "@/app/context/CartContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import product from "./product";
 
 const AddtoCart = ({ product }: any) => {
   const { cartItems, addProduct, qty, incQty, decQty }: any = useContext(CartContext);
 
-  //console.log(cartItems);
+  console.log(cartItems);
 
   //console.log(product)
   return (
@@ -36,3 +35,4 @@ const AddtoCart = ({ product }: any) => {
 };
 
 export default AddtoCart;
+

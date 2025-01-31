@@ -2,6 +2,7 @@
 
 import { CartContext } from "@/app/context/CartContext";
 import AddtoCart from "@/components/chunks-components/Add-to-Cart";
+import ShopPage from "@/components/chunks-components/addToCart";
 import handleAddToCart from "@/components/chunks-components/addToCart";
 import HandleAddToCart from "@/components/chunks-components/addToCart";
 import Reviews from "@/components/chunks-components/reviews";
@@ -268,11 +269,14 @@ export default async function ProductDetails({ params,}: {params: Promise<{ slug
                     {/* <div>
                       <AddtoCart product={product} />  ///////////////thilak
                     </div> */}
-                    <div> 
-                       <HandleAddToCart product={product}  />
-                        </div>
+                    {/* <div> 
+                       <HandleAddToCart product={product}  />kaladi
+                        </div> */}
 
-                    <br />
+{/* <div>
+    <ShopPage />
+</div>
+                    <br /> */}
                     <div>
                       <h2>Stock {product.stockLevel} in available</h2>
                       <h2>Category: {product.category} </h2>

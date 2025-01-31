@@ -1,6 +1,5 @@
 "use client";
 
-
 import React, { useEffect, useState } from "react";
 import {
   getCartItems,
@@ -48,14 +47,19 @@ const CartPage = () => {
   const handleIncrement = (_id: string) => {
     const product = cartItems.find((item:any) => item._id === _id);
     if (product) {
-      handleQuantityChange(_id, product.stockLevel + 1);
+      //handleQuantityChange(_id, product.stockLevel + 1);
+      const newQuantity = product.stockLevel + 1; // Increment quantity
+      handleQuantityChange(_id, newQuantity); // Update quantity in cart
+
     }
   };
 
   const handleDecrement = (_id: string) => {
     const product = cartItems.find((item:any) => item._id === _id);
     if (product && product.stockLevel > 1) {
-      handleQuantityChange(_id, product.stockLevel - 1);
+      //handleQuantityChange(_id, product.stockLevel - 1);
+      const newQuantity = product.quantity - 1; // Decrement quantity
+      handleQuantityChange(_id, newQuantity); // Update quantity in cart
     }
   };
 
@@ -166,3 +170,4 @@ const CartPage = () => {
 };
 
 export default CartPage;
+

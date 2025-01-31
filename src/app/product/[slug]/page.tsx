@@ -2,6 +2,8 @@
 
 import { CartContext } from "@/app/context/CartContext";
 import AddtoCart from "@/components/chunks-components/Add-to-Cart";
+import CartList from "@/components/chunks-components/addToCart";
+import ShopPage from "@/components/chunks-components/addToCart";
 import handleAddToCart from "@/components/chunks-components/addToCart";
 import HandleAddToCart from "@/components/chunks-components/addToCart";
 import Reviews from "@/components/chunks-components/reviews";
@@ -30,10 +32,10 @@ interface ProductParams {
 export default async function ProductDetails({ params,}: {params: Promise<{ slug: string }>;}) {
   const { slug } = await params;
 
-  // const {cartItems , addProduct , qty , incQty , decQty} :any = useContext(CartContext);
+  //const {cartItems , addProduct , qty , incQty , decQty} :any = useContext(CartContext);
 
-  // const [cartItems]  :any = useContext(CartContext);
-  // console.log(cartItems)
+//const {cartItems}  :any = useContext(CartContext);
+ // console.log(cartItems)
 
   const query = `  *[_type == 'product' && slug.current == '${slug}']{         
     name,
@@ -265,12 +267,15 @@ export default async function ProductDetails({ params,}: {params: Promise<{ slug
                       </button>
                     </div>
                     <br />
-                    {/* <div>
-                      <AddtoCart product={product} />  ///////////////thilak
-                    </div> */}
+                     {/* <div>
+                      <AddtoCart product={product} /> thilak
+                    </div> 
+                      */}
                     <div> 
-                       <HandleAddToCart product={product}  />
+                       <HandleAddToCart product={ product}  />
                         </div>
+
+                       
 
                     <br />
                     <div>
