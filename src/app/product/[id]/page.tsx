@@ -59,6 +59,23 @@ import Link from "next/link";
 import { useContext, useEffect, useState } from "react"
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
+export async function getStaticPaths() {
+  // Fetch all the product IDs from your Sanity backend
+  const products = await client.fetch(`*[_type == "product"]{id}`);
+  
+  // Map the products to an array of paths for the dynamic route
+  const paths = products.map((product: { id: string }) => ({
+    params: { id: product.id }, // id will be used in the [id].tsx file
+  }));
+
+  return {
+    paths,
+    fallback: 'blocking',  // This will ensure pages are built on-demand and not skipped
+  };
+}
+
+//--------------------------------------------------------
+
 export interface Products {
     _id: string
     id: string
@@ -316,7 +333,7 @@ export default function ProductDetails({ params }: { params: Promise<{ id: strin
                 <Reviews />
               </div>
             </section>
-            
+
           </div>
         );
       })}
