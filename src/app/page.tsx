@@ -1,5 +1,5 @@
 
-import Hero from "@/components/hero";
+import Hero from "@/components/chunks-components/hero";
 
 export default function Home() {
   return (

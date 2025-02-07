@@ -7,13 +7,16 @@ import { urlFor } from "@/sanity/lib/image";
 
 const Cart = () => {
   const {
-    toggleCartItemQty,
+    //toggleCartItemQty,
     totalPrice,
     totalQuantity,
     cartItems,
     showCart,
     setShowCart,
+    onRemove,
   }: any = useContext(CartContext);
+
+
   const handleClose = () => {
     return setShowCart(!showCart);
   };
@@ -33,48 +36,62 @@ const Cart = () => {
 
         <div className="product-container">
           {cartItems.map((product: any) => {
-            // Ensure imageUrl is correctly passed to urlFor function
-            const imageUrl = product.imageUrl
-              ? urlFor(product.imageUrl).url()
-              : null;
+        
+            const imageUrl = product.imageUrl ? urlFor(product.imageUrl).url()  : null;
 
             return (
               <div className="product" key={product._id}>
                 {imageUrl && (
                   <Image
-                    src={imageUrl} // Pass the correct URL to the src
-                    alt={product.name} // Use product name for alt text
-                    width={200}
-                    height={200}
-                    className="object-cover"
+                    src={imageUrl} 
+                    alt={product.name} 
+                    width={100}
+                    height={100}
+                    className="h-28 w-auto"
                   />
                 )}
                 <div className="item-desc">
                   <div className="flex top">
-                    <h5 className="text-[10px] ">{product.name}</h5>
-                    <h4>{product.price}</h4>
+                    <h5 className="text-sm ">{product.name}</h5>
+                    <div className="flex justify-center items-center gap-3">
+                    <h4>${product.price}</h4>
+                    <span className="border border-black p-2">Qty:{product.quantity}</span>
+                      
+                    <button type="button" onClick={()=>onRemove(product)}
+                    className="text-red-700">
+                      <TiDeleteOutline size={24} />
+                    </button>
+                    </div>
+
                   </div>
 
-                  <div className="flex bottom">
-                    <div className="quantity-desc border border-black ">
-                      <span
+                  {/* <div className="flex bottom">
+                    <div className="quantity-desc border border-black "> */}
+
+                      {/* <span
                         className="minus"
                         onClick={() => toggleCartItemQty(product._id, "minus")}
                       >
                         <AiOutlineMinus />
-                      </span>
-                      <span className="num">{product.quantity}</span>
-                      <span
+                      </span> */}
+                      
+                      {/* <span className="num">Quantity: {product.quantity}</span> */}
+                      
+                      {/* <span
                         className="plus"
                         onClick={() => toggleCartItemQty(product._id, "plus")}
                       >
                         <AiOutlinePlus />
-                      </span>
-                    </div>
-                    <button type="button" className="text-red-700">
+                      </span> */}
+
+                    {/* </div> */}
+
+                    {/* <button type="button" onClick={()=>onRemove(product)}
+                    className="text-red-700">
                       <TiDeleteOutline size={24} />
-                    </button>
-                  </div>
+                    </button> */}
+
+                  {/* </div> */}
                 </div>
               </div>
             );

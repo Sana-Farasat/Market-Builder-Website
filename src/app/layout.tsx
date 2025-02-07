@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Header from "@/components/chunks-components/header";
+import Footer from "@/components/chunks-components/footer";
 import { CartProvider } from "@/app/context/CartContext";
+import { WishlistProvider } from "@/app/context2/WishlistContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <CartProvider>
+        <WishlistProvider>
           <Header />
           <div>{children}</div>
           <Footer />
+         </WishlistProvider>
         </CartProvider>
       </body>
     </html>

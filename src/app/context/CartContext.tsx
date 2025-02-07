@@ -122,7 +122,7 @@
 "use client"
 
 import { createContext, useState } from "react";
-
+//import Swal from "sweetalert2";
 
 export const CartContext = createContext({});
 
@@ -147,6 +147,14 @@ export const CartProvider = ({children}:any) =>{
     }
 
     const addProduct = (product:any, quantity:number) =>{
+
+        //  Swal.fire({
+        //       position: "top-right",
+        //       icon: "success",
+        //       title: `${product.name} added to cart`,
+        //       showConfirmButton: false,
+        //       timer: 1000,
+        //     });
 
         const checkProductInCart = cartItems.find((item:any)=>item._id === product._id);
         setTotalQuantity((prev)=>prev+quantity);
@@ -178,6 +186,9 @@ export const CartProvider = ({children}:any) =>{
         let foundProduct = cartItems.find((item)=> item._id === id);
         const index = cartItems.findIndex((product)=>product._id === id);
         const updatedCartItems = [...cartItems];
+        
+
+
 
         if(value === 'plus'){
             updatedCartItems[index] = { ...updatedCartItems[index], quantity:updatedCartItems[index].quantity + 1 }

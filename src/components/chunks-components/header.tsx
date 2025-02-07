@@ -18,7 +18,7 @@ import {
   //DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Cart from "./chunks-components/Cart";
+import Cart from "./Cart";
 import { CartContext } from "@/app/context/CartContext";
 
 export default function Header() {
@@ -72,10 +72,12 @@ export default function Header() {
             <RxAvatar />
           </div>
           {/*----------------Right side 4------------------- */}
+          <Link href={'/wishlist'}>
           <div className="flex items-center text-[0.8em] lg:text-[1em]">
             whishlist
             <FaRegHeart />
           </div>
+          </Link>
           {/*----------------Right side 5------------------- */}
           <div className="flex items-center text-[1em] lg:text-[1.8em]">
             <button onClick={handleClick} className="relative">

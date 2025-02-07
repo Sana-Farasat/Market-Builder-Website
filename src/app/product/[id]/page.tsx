@@ -1,73 +1,115 @@
-//'use client';
+'use client';
 
-import { CartContext } from "@/app/context/CartContext";
-import AddtoCart from "@/components/chunks-components/Add-to-Cart";
-import CartList from "@/components/chunks-components/addToCart";
-import ShopPage from "@/components/chunks-components/addToCart";
-import handleAddToCart from "@/components/chunks-components/addToCart";
-import HandleAddToCart from "@/components/chunks-components/addToCart";
+// import Reviews from "@/components/chunks-components/reviews";
+// import { client } from "@/sanity/lib/client";
+// import { urlFor } from "@/sanity/lib/image";
+// import Image from "next/image";
+// import Link from "next/link";
+
+//  interface ProductData {
+//   _id: string;
+//   imageUrl: string;
+//   name: string;
+//   discountPercentage: number;
+//   stockLevel: number;
+//   description: string;
+//   category: string;
+//   price: number;
+// }
+
+// interface ProductParams {
+//   params: { slug: string };
+// }
+
+// export default async function ProductDetails({ params,}: {params: Promise<{ slug: string }>;}) {
+//   const { slug } = await params;
+
+//   //const {cartItems , addProduct , qty , incQty , decQty} :any = useContext(CartContext);
+
+// //const {cartItems}  :any = useContext(CartContext);
+//  // console.log(cartItems)
+
+//   const query = `  *[_type == 'product' && slug.current == '${slug}']{         
+//     name,
+//     description,
+//     price,
+//      "imageUrl": image.asset->url,
+//     stockLevel,
+//     category,
+// }
+// `;
+
+//   const fetchData: ProductData[] = await client.fetch(query, {
+//     slug: slug,
+//   });
+
+//   if (fetchData.length === 0) {
+//     return <div>Product not found</div>;
+//   }
+
+//   //console.log(fetchData.slug)
+
+import { CartContext } from "@/app/context/CartContext"
+import WishlistIcon from "@/components/chunks-components/wishlist"
 import Reviews from "@/components/chunks-components/reviews";
-import { client } from "@/sanity/lib/client";
+import { client } from "@/sanity/lib/client"
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext } from "react";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { useContext, useEffect, useState } from "react"
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
-interface ProductData {
-  _id: string;
-  imageUrl: string;
-  name: string;
-  discountPercentage: number;
-  stockLevel: number;
-  description: string;
-  category: string;
-  price: number;
+export interface Products {
+    _id: string
+    id: string
+    name: string
+    stockLevel: number
+    price: number
+    category: string
+    description: string
+    discountPercentage: number
+    imageUrl: string
+    quantity?: number
 }
 
-interface ProductParams {
-  params: { slug: string };
-}
+export default function ProductDetails({ params }: { params: Promise<{ id: string }> }) {
 
-export default async function ProductDetails({ params,}: {params: Promise<{ slug: string }>;}) {
-  const { slug } = await params;
+    const [item, setItem] = useState<Products[]>([]);
+    const [ID, setID] = useState<string>("");
 
-  //const {cartItems , addProduct , qty , incQty , decQty} :any = useContext(CartContext);
+    useEffect(() => {
+        const fetchData = async () => {
+            const id = (await params).id;
+            setID(id);
 
-//const {cartItems}  :any = useContext(CartContext);
- // console.log(cartItems)
+            const ListingData = async () => {
+                const res = await client.fetch(`*[ _id == "${id}"]{_id,id,name,stockLevel,price,
+                category,
+                description,
+                discountPercentage,
+                "imageUrl": image.asset -> url
+                 }`);
+                return res;
+            };
+            const product: Products[] = await ListingData();
+            setItem(product);
+        };
+        fetchData();
+    }, [params]);
 
-  const query = `  *[_type == 'product' && slug.current == '${slug}']{         
-    name,
-    description,
-    price,
-     "imageUrl": image.asset->url,
-    stockLevel,
-    category,
-}
-`;
-
-  const fetchData: ProductData[] = await client.fetch(query, {
-    slug: slug,
-  });
-
-  if (fetchData.length === 0) {
-    return <div>Product not found</div>;
-  }
-
-  //console.log(fetchData.slug)
+    const { cartItems, addProduct, qty, incQty, decQty }: any = useContext(CartContext);
 
   return (
-    <div>
-      {fetchData.map((product: ProductData) => {
+    <div className="max-w-screen-2xl mx-auto">
+      {item.map((product: Products) => {
         return (
           <div key={product._id}>
-            <section className="text-gray-600 body-font overflow-hidden ">
+            <section className="text-gray-600 body-font overflow-hidden px-3">
               <div className="container px-3 py-16 mx-auto border  border-gray-400 bg-white rounded-lg shadow-lg transform transition duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:bg-gray-100 ">
-                <div className="lg:w-4/5 mx-auto flex flex-wrap">
+                <div className="lg:w-4/5 mx-auto flex flex-wrap justify-center items-center">
                   <Image
                     alt={product.name}
-                    className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                    className="h-72 w-72 sm:h-84 sm:w-84 md:w-96 md:h-96 lg:w-1/2  lg:h-auto  object-cover object-center rounded"
                     src={urlFor(product.imageUrl).url()}
                     height={"400"}
                     width={"400"}
@@ -137,7 +179,7 @@ export default async function ProductDetails({ params,}: {params: Promise<{ slug
                         >
                           <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                         </svg>
-                        <span className="text-gray-600 ml-3">Reviews</span>
+                      <span className="text-gray-600 ml-3">Reviews</span>
                       </span>
                       <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
                         <Link
@@ -154,8 +196,8 @@ export default async function ProductDetails({ params,}: {params: Promise<{ slug
                           >
                             <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
                           </svg>
-                        </Link>
-                        <Link
+                         </Link>
+                         <Link
                           href="https://www.instagram.com/"
                           className="text-gray-500"
                         >
@@ -169,8 +211,8 @@ export default async function ProductDetails({ params,}: {params: Promise<{ slug
                           >
                             <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
                           </svg>
-                        </Link>
-                        <Link href="/" className="text-gray-500">
+                         </Link>
+                         <Link href="/" className="text-gray-500">
                           <svg
                             fill="currentColor"
                             strokeLinecap="round"
@@ -221,21 +263,30 @@ export default async function ProductDetails({ params,}: {params: Promise<{ slug
                       <span className="title-font font-medium text-2xl text-gray-900">
                         $ {product.price}
                       </span>
-                      <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">
+                      <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded flex items-center dark:bg-blue-200 dark:text-blue-800 ms-3">
                         {product.discountPercentage > 0
                           ? `${product.discountPercentage}% OFF`
                           : ""}
                       </span>
 
-                      {/* <div className='flex gap-2 items-center'>
-                        <h3>Quantity</h3>
-                        <p className='quantity-desc flex items-center border-black'>
-                            <span className='minus'
-                                onClick={decQty}
-                            >
+                     <div className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                     <WishlistIcon product={product} />
+                     </div>
+                     
+                    </div>
+                    <br />
+                  <div className='flex flex-col sm:flex-row  gap-2 items-center '>
+                   <div className="flex justify-center items-center gap-2">
+                    <h3>Quantity</h3>
+                    <p className='quantity-desc flex items-center border-black'>
+                      <span className='minus'
+                           onClick={decQty}
+                           >
                                 <AiOutlineMinus />
                             </span>
+
                             <span className='num'>{qty}</span>
+
                             <span className='plus' 
                                 onClick={incQty}
                             >
@@ -243,42 +294,15 @@ export default async function ProductDetails({ params,}: {params: Promise<{ slug
                             </span>
 
                         </p>
-                </div> */}
-
-                      {/* <button className="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded" onClick={()=>addProduct(product , qty)}>
-                        Add to Cart
-                      </button> */}
-
-                      {/* <div>
-                        <AddtoCart />
-                      </div> */}
-
-                      <button className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
-                        <svg
-                          fill="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          className="w-5 h-5"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
-                        </svg>
-                      </button>
-                    </div>
-                    <br />
-                     {/* <div>
-                      <AddtoCart product={product} /> thilak
-                    </div> 
-                      */}
-                    <div> 
-                       <HandleAddToCart product={ product}  />
                         </div>
-
-                       
-
-                    <br />
-                    <div>
+                      <div className="text-center">
+                       <button className="flex ml-auto  md:mr-96 lg:mr-2 text-white bg-indigo-500 border-0 py-2 px-3 focus:outline-none hover:bg-indigo-600 rounded" onClick={()=>addProduct(product , qty)}>
+                        Add to Cart
+                      </button> 
+                      </div>
+                      </div> 
+                      <br />
+                     <div>
                       <h2>Stock {product.stockLevel} in available</h2>
                       <h2>Category: {product.category} </h2>
                     </div>
@@ -286,11 +310,13 @@ export default async function ProductDetails({ params,}: {params: Promise<{ slug
                 </div>
               </div>
             </section>
+
             <section>
               <div>
                 <Reviews />
               </div>
             </section>
+            
           </div>
         );
       })}
