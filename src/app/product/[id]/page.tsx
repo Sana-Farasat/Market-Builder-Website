@@ -59,9 +59,10 @@ import Link from "next/link";
 import { useContext, useEffect, useState } from "react"
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 
+//-----------------------------------------------------------
 export async function getStaticPaths() {
   // Fetch all the product IDs from your Sanity backend
-  const products = await client.fetch(`*[_type == "product"]{id}`);
+  const products = await client.fetch(`*[_type == "product"]{_id}`);
   
   // Map the products to an array of paths for the dynamic route
   const paths = products.map((product: { id: string }) => ({
@@ -70,13 +71,26 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: 'blocking',  // This will ensure pages are built on-demand and not skipped
+    fallback: 'true',  // This will ensure pages are built on-demand and not skipped
+    revalidate: 10 
   };
 }
-
 //--------------------------------------------------------
 
-export interface Products {
+//export const revalidate=10 //----> seconds
+
+// export async function generateStaticParams(){
+
+//       const query=`
+//       *[_type == 'product']{
+//       _id
+//       }`;
+//       const slugs= await client.fetch(query);
+      
+//       return slugs.map((_id: { id: string }) => ({ _id: _id.id }));
+//     }
+   
+    export interface Products {
     _id: string
     id: string
     name: string
