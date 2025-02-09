@@ -1,6 +1,8 @@
 import { Rule } from "@sanity/types";
 
-export default {
+//export default {
+
+export const product = {
   name: "product",
   type: "document",
   title: "Product",
