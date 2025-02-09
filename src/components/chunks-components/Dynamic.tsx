@@ -1,139 +1,37 @@
-'use client';
+'use client'
 
-// import Reviews from "@/components/chunks-components/reviews";
-// import { client } from "@/sanity/lib/client";
-// import { urlFor } from "@/sanity/lib/image";
-// import Image from "next/image";
-// import Link from "next/link";
 
-//  interface ProductData {
-//   _id: string;
-//   imageUrl: string;
-//   name: string;
-//   discountPercentage: number;
-//   stockLevel: number;
-//   description: string;
-//   category: string;
-//   price: number;
-// }
-
-// interface ProductParams {
-//   params: { slug: string };
-// }
-
-// export default async function ProductDetails({ params,}: {params: Promise<{ slug: string }>;}) {
-//   const { slug } = await params;
-
-//   //const {cartItems , addProduct , qty , incQty , decQty} :any = useContext(CartContext);
-
-// //const {cartItems}  :any = useContext(CartContext);
-//  // console.log(cartItems)
-
-//   const query = `  *[_type == 'product' && slug.current == '${slug}']{         
-//     name,
-//     description,
-//     price,
-//      "imageUrl": image.asset->url,
-//     stockLevel,
-//     category,
-// }
-// `;
-
-//   const fetchData: ProductData[] = await client.fetch(query, {
-//     slug: slug,
-//   });
-
-//   if (fetchData.length === 0) {
-//     return <div>Product not found</div>;
-//   }
-
-//   //console.log(fetchData.slug)
-
-import { CartContext } from "@/app/context/CartContext"
-import WishlistIcon from "@/components/chunks-components/wishlist"
-import Reviews from "@/components/chunks-components/reviews";
-import { client } from "@/sanity/lib/client"
+import { CartContext } from "@/app/context/CartContext";
+import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { Link } from "lucide-react";
+import { useState, useEffect, useContext } from "react";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import Products from "./product";
+import Reviews from "./reviews";
+import WishlistIcon from "./wishlist";
 import Image from "next/image";
-import Link from "next/link";
-import { useContext, useEffect, useState } from "react"
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
-
-//-----------------------------------------------------------
-// export async function getStaticPaths() {
-//   // Fetch all the product IDs from your Sanity backend
-//   const products = await client.fetch(`*[_type == "product"]{_id}`);
-  
-//   // Map the products to an array of paths for the dynamic route
-//   const paths = products.map((product: { id: string }) => ({
-//     params: { id: product.id }, // id will be used in the [id].tsx file
-//   }));
-
-//   return {
-//     paths,
-//     fallback: 'blocking',  // This will ensure pages are built on-demand and not skipped
-//   };
-// }
 
 
-// export async function getStaticProps(){
 
-//   const query=`
-//          *[_type == 'product']{
-//          _id,
-//          name,
-//          description,
 
-//          }`;
-//          const posts = await client.fetch(query)
 
-//          return {
-//           props: {
-//             posts,
-//           },
-//         }
-// }
 
-//--------------------------------------------------------
 
-//export const revalidate=10 //----> seconds
 
-// export async function generateStaticParams(){
 
-//       const query=`
-//       *[_type == 'product']{
-//       _id
-//       }`;
-//       const slugs= await client.fetch(query);
-      
-//       return slugs.map((_id: { id: string }) => ({ _id: _id.id }));
-//     }
-   
-    export interface Products {
-    _id: string
-    id: string
-    name: string
-    stockLevel: number
-    price: number
-    category: string
-    description: string
-    discountPercentage: number
-    imageUrl: string
-    quantity?: number
-}
-
-export default function ProductDetails({ params }: { params: Promise<{ id: string }> }) {
+export default function Dynamic ( ){
 
     const [item, setItem] = useState<Products[]>([]);
     const [ID, setID] = useState<string>("");
 
     useEffect(() => {
         const fetchData = async () => {
-            const id = (await params).id;
-            setID(id);
+            // const id = (await params).id;
+            // setID(id);
 
             const ListingData = async () => {
-                const res = await client.fetch(`*[ _id == "${id}"]{_id,id,name,stockLevel,price,
+                const res = await client.fetch(`*[ _type == "product"]{_id,id,name,stockLevel,price,
                 category,
                 description,
                 discountPercentage,
@@ -145,7 +43,7 @@ export default function ProductDetails({ params }: { params: Promise<{ id: strin
             setItem(product);
         };
         fetchData();
-    }, [params]);
+    }, []);
 
     const { cartItems, addProduct, qty, incQty, decQty }: any = useContext(CartContext);
 
@@ -354,7 +252,7 @@ export default function ProductDetails({ params }: { params: Promise<{ id: strin
                       <br />
                      <div>
                       <h2>Stock {product.stockLevel} in available</h2>
-                      <h2>Category: {product.category} </h2>
+                      <h2>Category: {product.stockLevel} </h2>
                     </div>
                   </div>
                 </div>
