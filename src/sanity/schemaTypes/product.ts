@@ -2,7 +2,7 @@ import { Rule } from "@sanity/types";
 
 //export default {
 
-export const product = {
+const product = {
   name: "product",
   type: "document",
   title: "Product",
@@ -84,3 +84,5 @@ export const product = {
     },
   ],
 };
+
+export default product;
