@@ -13,22 +13,22 @@ const product = {
       title: "Name",
       validation: (Rule: Rule) => Rule.required().error("Name is required"),
     },
-    // {
-    //   name: "slug",
-    //   type: "slug",
-    //   title: "Slug",
-    //   description: "This will be used for dynamic routing.",
-    //   options: {
-    //     source: "name", // Set the source of the slug to be the product name
-    //     maxLength: 96, // Maximum length of the slug
-    //     slugify: (input: string) =>
-    //       input
-    //         .toLowerCase() // Convert the input to lowercase
-    //         .replace(/\s+/g, "-") // Replace spaces with hyphens
-    //         .replace(/[^\w\-]+/g, ""), // Remove any non-word characters (optional)
-    //   },
-    //   validation: (Rule: Rule) => Rule.required().error("Slug is required"),
-    // },
+    {
+      name: "slug",
+      type: "slug",
+      title: "Slug",
+      description: "This will be used for dynamic routing.",
+      options: {
+        source: "name", // Set the source of the slug to be the product name
+        maxLength: 96, // Maximum length of the slug
+        slugify: (input: string) =>
+          input
+            .toLowerCase() // Convert the input to lowercase
+            .replace(/\s+/g, "-") // Replace spaces with hyphens
+            .replace(/[^\w\-]+/g, ""), // Remove any non-word characters (optional)
+      },
+      validation: (Rule: Rule) => Rule.required().error("Slug is required"),
+    },
     {
       name: "image",
       type: "image",
