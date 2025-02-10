@@ -1,6 +1,5 @@
 'use client'
 
-
 import { CartContext } from "@/app/context/CartContext";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
@@ -12,26 +11,24 @@ import Reviews from "./reviews";
 import WishlistIcon from "./wishlist";
 import Image from "next/image";
 
-
-
-
-
-
-
-
-
-export default function Dynamic ( ){
+export default function Dynamic ({params} : {params: {id : string}} ){
 
     const [item, setItem] = useState<Products[]>([]);
     const [ID, setID] = useState<string>("");
 
     useEffect(() => {
         const fetchData = async () => {
-            // const id = (await params).id;
-            // setID(id);
+            const id = (await params).id;
+            //const id = await params;
+            setID(id);
 
             const ListingData = async () => {
-                const res = await client.fetch(`*[ _type == "product"]{_id,id,name,stockLevel,price,
+                const res = await client.fetch(`*[ _type == "product"]{
+                _id,
+                id,
+                name,
+                stockLevel,
+                price,
                 category,
                 description,
                 discountPercentage,
