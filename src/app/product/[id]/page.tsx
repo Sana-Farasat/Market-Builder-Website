@@ -93,7 +93,6 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 //           },
 //         }
 // }
-
 //--------------------------------------------------------
 
 //export const revalidate=10 //----> seconds
@@ -104,10 +103,11 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 //       *[_type == 'product']{
 //       _id
 //       }`;
-//       const slugs= await client.fetch(query);
+//       const ids= await client.fetch(query);
       
-//       return slugs.map((_id: { id: string }) => ({ _id: _id.id }));
+//       return ids.map((_id: { id: string }) => ({ _id: _id.id }));
 //     }
+//----------------------------------------------------------
    
     export interface Products {
     _id: string
