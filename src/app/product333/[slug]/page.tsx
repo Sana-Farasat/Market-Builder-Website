@@ -109,6 +109,28 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 //       return slugs.map((_id: { id: string }) => ({ _id: _id.id }));
 //     }
    
+// export async function getStaticProps() {
+//     const res = await client.fetch(`*[ _type == "product"]
+//         {_id,id,name,stockLevel,price,
+//     category,
+//     description,
+//     discountPercentage,
+//     "imageUrl": image.asset -> url
+//     "slug":slug.current
+//      }`);
+//     const data = await res;
+   
+//     return {
+//       props: { data },
+//       revalidate: 60,
+//     }
+//   }
+
+
+
+
+
+
     export interface Products {
     _id: string
     id: string
@@ -140,7 +162,7 @@ export default function ProductDetails({ params }: { params: Promise<{ slug: str
                 description,
                 discountPercentage,
                 "imageUrl": image.asset -> url
-                 }`);
+                 }`, { slug: (await params).slug });
                 return res;
             };
             const product: Products[] = await ListingData();
