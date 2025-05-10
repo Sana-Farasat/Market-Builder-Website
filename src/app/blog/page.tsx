@@ -21,8 +21,14 @@ export default function Blog() {
 
       {/* ----------------Part 1---------------- */}
       {/* ----------------Image Div---------------- */}
-      <div className="flex justify-center items-center layout-responsive my-3">
-        <Image src="/images/blog1.png" alt="blog" height={400} width={600} />
+      <div className="flex justify-center items-center layout-responsive my-3 group overflow-hidden">
+        <Image
+          src="/images/blog1.png"
+          alt="blog"
+          height={400}
+          width={600}
+          className="transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-lg"
+        />
       </div>
       {/* ----------------Text Div---------------- */}
       <div className="flex flex-col justify-center items-center h-52 w-auto my-6">
@@ -58,8 +64,14 @@ export default function Blog() {
       {/* ----------------Part 2---------------- */}
 
       {/* ----------------Image Div---------------- */}
-      <div className="flex justify-center items-center layout-responsive my-3">
-        <Image src="/images/blog2.png" alt="blog" height={400} width={600} />
+      <div className="flex justify-center items-center layout-responsive my-3 group overflow-hidden">
+        <Image
+          src="/images/blog2.png"
+          alt="blog"
+          height={400}
+          width={600}
+          className="transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-lg"
+        />
       </div>
       {/* ----------------Text Div---------------- */}
       <div className="flex flex-col justify-center items-center h-52 w-auto my-6">
@@ -94,8 +106,14 @@ export default function Blog() {
 
       {/* ----------------Part 3---------------- */}
       {/* ----------------Image Div---------------- */}
-      <div className="flex justify-center items-center layout-responsive my-3">
-        <Image src="/images/blog3.png" alt="blog" height={400} width={600} />
+      <div className="flex justify-center items-center layout-responsive my-3 group overflow-hidden">
+        <Image
+          src="/images/blog3.png"
+          alt="blog"
+          height={400}
+          width={600}
+          className="transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-lg"
+        />
       </div>
       {/* ----------------Text Div---------------- */}
       <div className="flex flex-col justify-center items-center h-52 w-auto my-6">

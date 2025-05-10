@@ -20,7 +20,7 @@ export default function Account() {
     <br />
     <p className='text-gray-400 pl-14'>Forgot your password?</p>
     <br />
-    <button className='bg-pink-600 text-white text-center mx-16 py-2'>Sign in</button>
+    <button className='bg-pink-600 text-white text-center mx-16 py-2 hover:bg-pink-400'>Sign in</button>
     <br />
     <p className='text-gray-400 text-center'>Don`&apos;`t have an account? Create account</p>
 </div>

@@ -58,6 +58,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContext, useEffect, useState } from "react"
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import styles for Toastify
 
 //-----------------------------------------------------------
 // export async function getStaticPaths() {
@@ -109,6 +111,11 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 //     }
 //----------------------------------------------------------
    
+// Function to trigger toast notification
+const notify = (message: string) => {
+  toast(message);  // Show a toast notification with the given message
+};
+
     export interface Products {
     _id: string
     id: string
@@ -320,7 +327,9 @@ export default function ProductDetails({ params }: { params: Promise<{ id: strin
                       </span>
 
                      <div className="rounded-full w-10 h-10 bg-gray-200 p-0 border-0 inline-flex items-center justify-center text-gray-500 ml-4">
+                      
                      <WishlistIcon product={product} />
+                     
                      </div>
                      
                     </div>
@@ -346,7 +355,7 @@ export default function ProductDetails({ params }: { params: Promise<{ id: strin
                         </p>
                         </div>
                       <div className="text-center">
-                       <button className="flex ml-auto  md:mr-96 lg:mr-2 text-white bg-indigo-500 border-0 py-2 px-3 focus:outline-none hover:bg-indigo-600 rounded" onClick={()=>addProduct(product , qty)}>
+                       <button className="flex ml-auto  md:mr-96 lg:mr-2 text-white bg-indigo-500 border-0 py-2 px-3 focus:outline-none hover:bg-indigo-600 rounded" onClick={()=>addProduct(product , qty)} >
                         Add to Cart
                       </button> 
                       </div>

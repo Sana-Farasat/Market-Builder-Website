@@ -41,7 +41,7 @@ export default function About() {
             <li>Arms , back and seats are structurally reinforced</li>
           </ul>
 
-          <button className="bg-[#FB2E86] text-white font-semibold px-4 py-1 my-2 md:px-8 md:py-3 md:my-4">
+          <button className="bg-[#FB2E86] text-white font-semibold px-4 py-1 my-2 md:px-8 md:py-3 md:my-4 hover:bg-pink-600">
             Contact Us
           </button>
         </div>
@@ -63,6 +63,7 @@ export default function About() {
             alt="cardicon1"
             height={60}
             width={60}
+            className="transition-transform duration-300 ease-in-out hover:scale-105"
           />
           <h2 className="text-[#151875] font-[josefin Sans] font-extrabold">
             24/7 Support

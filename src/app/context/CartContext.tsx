@@ -179,7 +179,7 @@ export const CartProvider = ({children}:any) =>{
             product.quantity = quantity;
             setCartItems([...cartItems, {...product}]);
         }
-
+        
     }
 
     const toggleCartItemQty = (id:any, value:any) =>{

@@ -3,9 +3,26 @@
 import { useWishlist } from '@/app/context2/WishlistContext';
 //import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // Import styles for Toastify
 
 type WishlistIconProps = {
   product: { _id: string; name: string; price: number; imageUrl: string };
+};
+
+// function App(){
+//   const notify = () => toast("Wow so easy!");
+//   return (
+//     <div>
+//       <button onClick={notify}>Notify!</button>
+//       <ToastContainer />
+//     </div>
+//   );
+// }
+
+// Function to trigger toast notification
+const notify = (message: string) => {
+  toast(message);  // Show a toast notification with the given message
 };
 
 const WishlistIcon: React.FC<WishlistIconProps> = ({ product }) => {
@@ -19,6 +36,7 @@ const WishlistIcon: React.FC<WishlistIconProps> = ({ product }) => {
       removeFromWishlist(product._id);
     } else {
       addToWishlist(product);
+      notify(`Added ${product.name} to Wishlist`);  // Notify the user about addition
     }
     setIsAdded(!isAdded);
   };
@@ -26,6 +44,7 @@ const WishlistIcon: React.FC<WishlistIconProps> = ({ product }) => {
  // console.log(wishlist)
 
   return (
+    <div>
     <button
       onClick={toggleWishlist}
       className={`p-2 rounded-full ${isAdded ? 'bg-red-500' : 'bg-gray-300'} hover:bg-red-600 transition-colors`}
@@ -44,6 +63,9 @@ const WishlistIcon: React.FC<WishlistIconProps> = ({ product }) => {
         />
       </svg>
     </button>
+    {/* Add ToastContainer for showing toast notifications */}
+    <ToastContainer position="top-center" autoClose={3000} hideProgressBar newestOnTop closeOnClick />
+    </div>
   );
 };
 

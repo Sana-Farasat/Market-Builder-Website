@@ -33,7 +33,7 @@ export default function Shop() {
         {/* ----------------Right Side---------------- */}
         <div className="text-gray-500 px-2 h-auto flex flex-col justify-center items-center text-base md:flex-row md:gap-4 ">
           {/* ----------------Part 1---------------- */}
-          <div className="flex ">
+          <div className="flex gap-2">
             <div>Per Page:</div>
             <input type="text" className="w-20 h-5 border border-gray-500" />
           </div>
@@ -46,7 +46,7 @@ export default function Shop() {
           </div>
 
           {/* ----------------Part 3---------------- */}
-          <div className="flex">
+          <div className="flex gap-2">
             <div>View:</div>
             <input type="text" className="w-20 h-5 border border-gray-500" />
           </div>
@@ -60,12 +60,13 @@ export default function Shop() {
         {/* ----------------Card 1---------------- */}
         <div className="bg-white shadow-lg px-6 md:px-12 lg:px-20 xl:px-28 py-4 mx-4 md:mx-20 lg:mx-28 xl:mx-36 my-4 flex flex-col md:flex-row justify-center items-center ">
           {/* ----------------Card Left---------------- */}
-          <div className="w-full h-auto layout-responsive">
+          <div className="w-full h-auto layout-responsive group overflow-hidden">
             <Image
               src="/images/shop1.png"
               alt="shop-card"
               height={200}
               width={300}
+              className="transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-lg"
             />
           </div>
           {/* ----------------Card Right---------------- */}
@@ -101,12 +102,13 @@ export default function Shop() {
         {/* ----------------Card 2---------------- */}
         <div className="bg-white shadow-lg px-6 md:px-12 lg:px-20 xl:px-28 py-4 mx-4 md:mx-20 lg:mx-28 xl:mx-36 my-4 flex flex-col md:flex-row justify-center items-center">
           {/* ----------------Card Left---------------- */}
-          <div className="w-full h-auto layout-responsive">
+          <div className="w-full h-auto layout-responsive group overflow-hidden">
             <Image
               src="/images/shop2.png"
               alt="shop-card"
               height={200}
               width={300}
+              className="transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-lg"
             />
           </div>
           {/* ----------------Card Right---------------- */}
@@ -143,12 +145,13 @@ export default function Shop() {
         {/* ----------------Card 3---------------- */}
         <div className="bg-white shadow-lg px-6 md:px-12 lg:px-20 xl:px-28 py-4 mx-4 md:mx-20 lg:mx-28 xl:mx-36 my-4 flex flex-col md:flex-row justify-center items-center">
           {/* ----------------Card Left---------------- */}
-          <div className="w-full h-auto layout-responsive">
+          <div className="w-full h-auto layout-responsive group overflow-hidden">
             <Image
               src="/images/shop3.png"
               alt="shop-card"
               height={200}
               width={300}
+              className="transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-lg"
             />
           </div>
           {/* ----------------Card Right---------------- */}
@@ -184,12 +187,13 @@ export default function Shop() {
         {/* ----------------Card 4---------------- */}
         <div className="bg-white shadow-lg px-6 md:px-12 lg:px-20 xl:px-28 py-4 mx-4 md:mx-20 lg:mx-28  xl:mx-36 my-4 flex flex-col md:flex-row justify-center items-center">
           {/* ----------------Card Left---------------- */}
-          <div className="w-full h-auto layout-responsive">
+          <div className="w-full h-auto layout-responsive group overflow-hidden">
             <Image
               src="/images/shop4.png"
               alt="shop-card"
               height={200}
               width={300}
+              className="transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-lg"
             />
           </div>
           {/* ----------------Card Right---------------- */}
@@ -225,12 +229,13 @@ export default function Shop() {
         {/* ----------------Card 5---------------- */}
         <div className="bg-white shadow-lg px-6 md:px-12 lg:px-20 xl:px-28 py-4 mx-4 md:mx-20 lg:mx-28  xl:mx-36 my-4 flex flex-col md:flex-row justify-center items-center">
           {/* ----------------Card Left---------------- */}
-          <div className="w-full h-auto layout-responsive">
+          <div className="w-full h-auto layout-responsive group overflow-hidden">
             <Image
               src="/images/shop5.png"
               alt="shop-card"
               height={200}
               width={300}
+              className="transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-lg"
             />
           </div>
           {/* ----------------Card Right---------------- */}
@@ -266,12 +271,13 @@ export default function Shop() {
         {/* ----------------Card 6---------------- */}
         <div className="bg-white shadow-lg px-6 md:px-12 lg:px-20 xl:px-28 py-4 mx-4 md:mx-20 lg:mx-28  xl:mx-36 my-4 flex flex-col md:flex-row justify-center items-center">
           {/* ----------------Card Left---------------- */}
-          <div className="w-full h-auto layout-responsive">
+          <div className="w-full h-auto layout-responsive group overflow-hidden">
             <Image
               src="/images/shop6.png"
               alt="shop-card"
               height={200}
               width={300}
+              className="transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-lg"
             />
           </div>
           {/* ----------------Card Right---------------- */}

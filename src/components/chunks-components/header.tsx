@@ -108,7 +108,7 @@ export default function Header() {
                 <DropdownMenuTrigger className="flex justify-center items-center text-pink-500">
                   Home <ChevronUp size={16} />
                 </DropdownMenuTrigger>
-                <DropdownMenuContent>
+                <DropdownMenuContent className="bg-white">
                   <DropdownMenuItem>
                     <Link href="/">Home</Link>
                   </DropdownMenuItem>
@@ -155,24 +155,24 @@ export default function Header() {
           <SheetTrigger className="lg:hidden">
             <AlignJustify />
           </SheetTrigger>
-          <SheetContent>
+          <SheetContent className="bg-white">
             <ul className="flex flex-col space-y-4 font-bold items-center">
               <li>
                 <DropdownMenu>
                   <DropdownMenuTrigger className="flex justify-center items-center text-pink-500 select-none">
                     Home <ChevronUp size={16} />
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    <DropdownMenuItem>
+                  <DropdownMenuContent className="bg-pink-300">
+                    <DropdownMenuItem className="font-bold">
                       <Link href="/">Home</Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="font-bold">
                       <Link href="/about-us">About</Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="font-bold">
                       <Link href="/my-account">Account</Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem className="font-bold">
                       <Link href="/faq">Faq</Link>
                     </DropdownMenuItem>
                   </DropdownMenuContent>

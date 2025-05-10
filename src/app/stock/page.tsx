@@ -31,7 +31,7 @@ export default function Product() {
           {/* ----------------Right Side---------------- */}
           <div className="text-gray-500 px-2 h-auto flex flex-col justify-center items-center text-base md:text-xl md:flex-row md:gap-4 ">
             {/* ----------------Part 1---------------- */}
-            <div className="flex ">
+            <div className="flex gap-2 ">
               <div>Per Page:</div>
               <input type="text" className="w-20 h-5 border border-gray-500" />
             </div>
@@ -44,7 +44,7 @@ export default function Product() {
             </div>
 
             {/* ----------------Part 3---------------- */}
-            <div className="flex">
+            <div className="flex gap-2">
               <div>View:</div>
               <input type="text" className="w-20 h-5 border border-gray-500" />
             </div>
@@ -56,13 +56,13 @@ export default function Product() {
       <div className="grid justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-8 sm:mx-16 md:mx-6 lg:mx-20 xl:mx-32">
         {/* ----------------Card 1---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop1.png"
               alt="product"
               height={200}
               width={180}
-              className="layout-responsive "
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl"
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -82,13 +82,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 2---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop2.png"
               alt="product"
               height={200}
               width={180}
-              className="layout-responsive"
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl"
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -108,13 +108,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 3---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop3.png"
               alt="product"
               height={200}
               width={180}
-              className="layout-responsive "
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl"
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -134,13 +134,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 4---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop4.png"
               alt="product"
               height={200}
               width={180}
-              className="layout-responsive "
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl"
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -160,13 +160,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 5---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop5.png"
               alt="product"
               height={140}
               width={140}
-              className="layout-responsive "
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl "
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -186,13 +186,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 6---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop6.png"
               alt="product"
               height={200}
               width={180}
-              className="layout-responsive"
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl"
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -212,13 +212,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 7---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop7.png"
               alt="product"
               height={140}
               width={140}
-              className="layout-responsive "
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl "
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -238,13 +238,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 8---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop8.png"
               alt="product"
               height={200}
               width={180}
-              className="layout-responsive"
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl"
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -264,13 +264,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 9---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop9.png"
               alt="product"
               height={200}
               width={180}
-              className="layout-responsive "
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl "
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -290,13 +290,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 10---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop10.png"
               alt="product"
               height={200}
               width={180}
-              className="layout-responsive "
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl "
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -316,13 +316,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 11---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop11.png"
               alt="product"
               height={200}
               width={180}
-              className="layout-responsive "
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl "
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">
@@ -342,13 +342,13 @@ export default function Product() {
         </div>
         {/* ----------------Card 12---------------- */}
         <div>
-          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center">
+          <div className="bg-[#EEEFFB] h-52 w-60 flex justify-center items-center overflow-hidden rounded-lg group transition-all duration-300 ease-in-out">
             <Image
               src="/images/gridshop12.png"
               alt="product"
               height={200}
               width={180}
-              className="layout-responsive "
+              className="layout-responsive transition-transform duration-500 ease-in-out group-hover:scale-110 group-hover:-translate-y-1 group-hover:shadow-xl "
             />
           </div>
           <div className="flex flex-col justify-center items-center h-20 w-60">

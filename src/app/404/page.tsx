@@ -19,7 +19,7 @@ export default function Page() {
 {/* ----------------Div 3---------------- */}
 
 <Link href="/" className='flex justify-center my-7'>
-<button className='bg-[#FB2E86] text-white px-3 py-2 md:px-6 md:py-3'> Back to Home</button>
+<button className='bg-[#FB2E86] text-white px-3 py-2 md:px-6 md:py-3 hover:bg-pink-600'> Back to Home</button>
 </Link>
     </div>
   )

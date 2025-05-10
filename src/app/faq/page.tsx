@@ -60,7 +60,7 @@ export default function Faq() {
                  </div>
 
 
-<button className='bg-[#FB2E86] text-white ml-5 my-2 px-3 py-2 md:px-6 md:py-3'>Send Mail</button>
+<button className='bg-[#FB2E86] text-white ml-5 my-2 px-3 py-2 md:px-6 md:py-3 hover:bg-pink-600'>Send Mail</button>
 
 
 
