@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function About() {
   return (
@@ -40,10 +41,11 @@ export default function About() {
             <li>Reinforces with double wood dowels , screw and glue</li>
             <li>Arms , back and seats are structurally reinforced</li>
           </ul>
-
-          <button className="bg-[#FB2E86] text-white font-semibold px-4 py-1 my-2 md:px-8 md:py-3 md:my-4 hover:bg-pink-600">
-            Contact Us
-          </button>
+          <Link href={"/contact"}>
+            <button className="bg-[#FB2E86] text-white font-semibold px-4 py-1 my-2 md:px-8 md:py-3 md:my-4 hover:bg-pink-600">
+              Contact Us
+            </button>
+          </Link>
         </div>
       </div>
 
